@@ -1,4 +1,4 @@
-const { projects, clients } = require("../sampleData.js")
+// const { projects, clients } = require("../sampleData.js")
 
 // mongoose models
 const Project = require("../models/Project")
@@ -55,6 +55,7 @@ const ProjectType = new GraphQLObjectType({
   }),
 })
 
+// queries
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
