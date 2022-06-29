@@ -9,28 +9,29 @@ export default function AddClientModal() {
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
 
-    const [addClient] = useMutation(ADD_CLIENT, {
-      variables: { name, email, phone },
-      update(cache, { data: { addClient } }) {
-        const { clients } = cache.readQuery({ query: GET_CLIENTS })
-        cache.writeQuery({
-          query: GET_CLIENTS,
-          data: { clients: [...clients, addClient] },
-        })
-      },
-    })
+  const [addClient] = useMutation(ADD_CLIENT, {
+    variables: { name, email, phone },
+    update(cache, { data: { addClient } }) {
+      const { clients } = cache.readQuery({ query: GET_CLIENTS })
+      cache.writeQuery({
+        query: GET_CLIENTS,
+        data: { clients: [...clients, addClient] },
+      })
+    },
+  })
 
   const onSubmit = (e) => {
     e.preventDefault()
     if (name && email && phone) {
-        addClient(name, email, phone)
-          setName("")
-          setEmail("")
-          setPhone("")
+      addClient(name, email, phone)
+      setName("")
+      setEmail("")
+      setPhone("")
     } else {
       return alert("Please fill in all fields")
     }
   }
+
   return (
     <>
       <button
@@ -47,7 +48,6 @@ export default function AddClientModal() {
       <div
         className="modal fade"
         id="addClientModal"
-        tabindex="-1"
         data-bs-backdrop="static"
         aria-labelledby="addClientModalLabel"
         aria-hidden="true">
@@ -95,7 +95,10 @@ export default function AddClientModal() {
                     className="form-control"
                   />
                 </div>
-                <button className="btn btn-secondary" data-bs-dismiss="modal" type="submit">
+                <button
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  type="submit">
                   Submit
                 </button>
               </form>

@@ -2,7 +2,7 @@ import logo from "./assets/logo.png"
 
 export default function Header() {
   return (
-    <mav className="navbar bg-light mb-4 p-8">
+    <nav className="navbar bg-light mb-4 p-8">
       <div className="continer">
         <a href="/" className="navbar-brand">
           <div className="d-flex">
@@ -11,6 +11,6 @@ export default function Header() {
           </div>
         </a>
       </div>
-    </mav>
+    </nav>
   )
 }
